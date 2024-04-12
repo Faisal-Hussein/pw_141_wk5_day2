@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-class RecipeSchema(Schema):
+class UserSchema(Schema):
     id = fields.Str(dump_only=True)
     username = fields.Str(required=True)
     email = fields.Str(required=True)
@@ -8,8 +8,9 @@ class RecipeSchema(Schema):
     first_name= fields.Str()
     last_name= fields.Str()
 
-class PostSchema(Schema):
+class FilmSchema(Schema):
     id = fields.Str(dump_only=True)
-    title = fields.Str()
-    body = fields.Str(required=True)
-    author = fields.Int(required=True)
+    title = fields.Str(required=True)
+    creator = fields.Str(required=True)
+    genre = fields.Str(required=True)
+    quantity = fields.Int(required=True)
