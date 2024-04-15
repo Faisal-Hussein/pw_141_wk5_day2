@@ -30,7 +30,7 @@ class FilmList(MethodView):
     def get(self):
         return FilmModel.query.all()
 
-@bp.route('/post/<post_id>')
+@bp.route('film/<film_id>')
 class Post(MethodView):
 
     @bp.response(200, FilmSchema)
@@ -38,7 +38,7 @@ class Post(MethodView):
         try: 
             return FilmModel.query.get(post_id)
         except:
-            abort(400, message="Post not found")
+            abort(400, message="Film not found")
 
     @bp.arguments(FilmSchema)
     def put(self, film_data, film_id):
